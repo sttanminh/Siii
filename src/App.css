@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 70vh; /* Make header take up the full viewport height */
+  color: #ff007f; /* Rose pink color */
+  font-size: 5em; /* Making the text larger */
+  font-family: 'Brush Script MT', cursive; /* Example of an artistic fo
 }
 
-.App-link {
-  color: #61dafb;
+.button-container {
+  margin-top: 20px; /* Adjust as needed for spacing between the question and buttons */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  font-size: 1em; /* Increase font size to make buttons bigger */
+  padding: 10px 20px; /* Increase padding to make buttons larger */
+  border: none; /* Remove default border */
+  border-radius: 20px; /* Add rounded corners for a softer look */
+  font-weight: bold; /* Make the text bold */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color;
+  margin-right: 20px;
+
 }
+.popup {
+  position: relative;
+  z-index: 30; /* Ensure popup content is above the overlay */
+}
+
+.popup-content {
+  position: relative;
+  display: inline-block; /* Wrap content around the image */
+  background: white; /* Ensure popup content background is solid */
+  padding: 10px; /* Add some padding around the content */
+  border-radius: 5px; /* Optional: rounded corners for the popup */
+}
+
+.skip-ad {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #f00; /* Example: red background for visibility */
+  color: #fff; /* White text color */
+  border: none;
+  cursor: pointer;
+}
+
+.popup img {
+  display: block; /* Remove bottom space under the image */
+  max-width: 100%; /* Adjust based on your needs, could be smaller */
+  height: auto;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  z-index: 20; /* Ensure it's above all other content */
+}
+
+
+@keyframes hoverEffect {
+  0% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(20px) translateY(-20px); }
+  50% { transform: translateX(-20px) translateY(20px); }
+  75% { transform: translateX(20px) translateY(20px); }
+  100% { transform: translateX(-20px) translateY(-20px); }
+}
+
+@keyframes exitToLeft {
+  to { transform: translateX(-100vw); }
+}
+
+.no-hovering {
+  animation: hoverEffect 2s infinite; /* Adjust time as needed */
+}
+
+.no-exiting {
+  animation: exitToLeft 1s forwards; /* Adjust time as needed */
+  animation-delay: 2s; /* Delay to start after some hovering */
+}
+
+@keyframes exitToLeft {
+  to { transform: translateX(-100vw); }
+}
+
+.no-exiting {
+  animation: exitToLeft 1s forwards;
+}
+
